@@ -3,8 +3,7 @@
 import { useState, useEffect } from 'react';
 
 export default function Home() {
-  
-  const [tasks, setTasks] = useState<string[]>([]);
+  const [tasks, setTasks] = useState<{ task: string }[]>([]);
   const [newTask, setNewTask] = useState('');
 
   const API_URL = 'https://testbackend-2tk9.onrender.com';
@@ -26,7 +25,7 @@ export default function Home() {
     });
 
     if (response.ok) {
-      setTasks(prev => [...prev, newTask]);
+      setTasks(prev => [...prev, { task: newTask }]);
       setNewTask('');
     } else {
       console.error("❌ Failed to add task");
@@ -49,7 +48,7 @@ export default function Home() {
       </div>
       <ul style={{ marginTop: '1rem' }}>
         {tasks.map((task, index) => (
-          <li key={index}>✅ {task}</li>
+          <li key={index}>✅ {task.task}</li>
         ))}
       </ul>
     </main>
