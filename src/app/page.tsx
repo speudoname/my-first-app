@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 
 export default function Home() {
-  const [tasks, setTasks] = useState<string[]>([]);
+  
+  const [tasks, setTasks] = useState<{ task: string }[]>([]);
   const [newTask, setNewTask] = useState('');
 
   const API_URL = 'https://testbackend-2tk9.onrender.com';
