@@ -3,10 +3,10 @@
 import { useState, useEffect } from 'react';
 
 export default function Home() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState<string[]>([]);
   const [newTask, setNewTask] = useState('');
 
-  const API_URL = 'http://localhost:5050';
+  const API_URL = 'https://testbackend-2tk9.onrender.com';
 
   useEffect(() => {
     fetch(`${API_URL}/tasks`)
